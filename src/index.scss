@@ -4,13 +4,6 @@
 
 @use 'font';
 
-@font-face {
-	font-family: 'JetBrains Mono';
-	font-style: normal;
-	font-weight: 400;
-	src: url('data:application/x-font-woff;charset=utf-8;base64,' + #{font.$jetbrains-mono});
-}
-
 @function to_RGB_arguments($color) {
 	@return red($color) + ', ' + green($color) + ', ' + blue($color);
 }
