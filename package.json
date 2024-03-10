@@ -1,0 +1,19 @@
+{
+	"name": "obsidian-focus-theme",
+	"module": "index.ts",
+	"type": "module",
+	"scripts": {
+		"build": "bun run esbuild.config.mjs",
+		"dev": "bun run esbuild.dev.config.mjs",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@types/bun": "latest",
+		"esbuild": "^0.20.1",
+		"esbuild-sass-plugin": "^3.1.0",
+		"prettier": "^3.2.5"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	}
+}
