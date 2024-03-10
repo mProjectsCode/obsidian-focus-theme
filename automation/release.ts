@@ -107,13 +107,6 @@ async function run() {
 	await Bun.write(betaManifestFile, JSON.stringify(betaManifest, null, '\t'));
 
 	if (!(newVersion instanceof CanaryVersion)) {
-		const versionsFile = Bun.file('./versions.json');
-		const versionsJson = await versionsFile.json();
-
-		versionsJson[newVersionString] = manifest.minAppVersion;
-
-		await Bun.write(versionsFile, JSON.stringify(versionsJson, null, '\t'));
-
 		const packageFile = Bun.file('./package.json');
 		const packageJson = await packageFile.json();
 
