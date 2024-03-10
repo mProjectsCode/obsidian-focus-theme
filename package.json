@@ -5,15 +5,22 @@
 	"scripts": {
 		"build": "bun run esbuild.config.mjs",
 		"dev": "bun run esbuild.dev.config.mjs",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"release": "bun run automation/release.ts",
+		"stats": "bun run automation/stats.ts"
 	},
 	"devDependencies": {
+		"@lemons_dev/parsinom": "^0.0.12",
 		"@types/bun": "latest",
 		"esbuild": "^0.20.1",
 		"esbuild-sass-plugin": "^3.1.0",
-		"prettier": "^3.2.5"
+		"prettier": "^3.2.5",
+		"string-argv": "^0.3.2"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"moment": "^2.30.1"
 	}
 }
