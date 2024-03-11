@@ -37,7 +37,7 @@ $dark-color-base-90: #e0e0e0;
 $dark-color-base-100: #ffffff;
 
 body {
-	--font-default: JetBrains Mono, monospace;
+	--font-default: JetBrains Mono, Menlo, SFMono-Regular, Consolas, 'Roboto Mono', 'Source Code Pro', monospace;
 
 	/* Animations */
 	--anim-duration-none: 0;
@@ -63,8 +63,8 @@ body {
 	/* Buttons */
 	--button-radius: var(--input-radius);
 	/* Callouts */
-	--callout-border-width: 0px;
-	--callout-border-opacity: 0.25;
+	--callout-border-width: 0 0 0 4px;
+	--callout-border-opacity: 1;
 	--callout-padding: var(--size-4-3) var(--size-4-3) var(--size-4-3) var(--size-4-6);
 	--callout-radius: var(--radius-s);
 	--callout-blend-mode: var(--highlight-mix-blend-mode);
@@ -520,9 +520,9 @@ body {
 	--swatch-shadow: inset 0 0 0 1px rgba(var(--mono-rgb-100), 0.15);
 	/* Tabs */
 	--tab-background-active: var(--background-primary);
-	--tab-text-color: var(--text-faint);
+	--tab-text-color: var(--text-muted);
 	--tab-text-color-active: var(--text-important);
-	--tab-text-color-focused: var(--text-faint);
+	--tab-text-color-focused: var(--text-muted);
 	--tab-text-color-focused-active: var(--text-important);
 	--tab-text-color-focused-highlighted: var(--text-accent);
 	--tab-text-color-focused-active-current: var(--text-important);
@@ -786,7 +786,7 @@ body {
 	}
 }
 
-.tree-item {
+.tree-item:not(.graph-control-section) {
 	--focus-text-color-hover: var(--text-accent);
 	--focus-color-hover: var(--color-accent);
 	--focus-text-color-active: var(--text-important);
@@ -881,12 +881,18 @@ body {
 	}
 }
 
-.vertical-tab-nav-item.is-active {
-	color: var(--text-important);
-	background-color: var(--background-modifier-hover);
+.vertical-tab-nav-item {
+	&.is-active {
+		color: var(--text-important);
+		background-color: var(--background-modifier-hover);
+
+		&:hover {
+			background-color: var(--background-modifier-hover);
+		}
+	}
 
 	&:hover {
-		background-color: var(--background-modifier-hover);
+		color: var(--text-accent);
 	}
 }
 
@@ -933,4 +939,148 @@ span.cm-header {
 			border-right: 1px solid var(--color-accent);
 		}
 	}
+}
+
+.callout-title {
+	align-items: center;
+
+	.callout-icon {
+		align-items: start;
+	}
+
+	.callout-title-inner {
+		text-transform: uppercase;
+	}
+}
+
+.menu {
+	border: none;
+
+	.menu-item:not(.is-warning).selected {
+		color: var(--text-accent);
+
+		& > .menu-item-icon {
+			color: var(--text-accent);
+		}
+	}
+
+	.menu-separator {
+		border: none;
+	}
+}
+
+.community-item {
+	border: none;
+
+	&:hover {
+		background-color: var(--background-modifier-hover);
+	}
+
+	.community-item-name {
+		color: var(--text-important);
+	}
+
+	.community-item-author {
+		color: var(--text-faint);
+	}
+
+	.community-item-downloads {
+		color: var(--text-faint);
+	}
+
+	.community-item-updated {
+		color: var(--text-faint);
+	}
+}
+
+.suggestion-container {
+	border: none;
+
+	.suggestion-item.is-selected {
+		color: var(--text-important);
+	}
+}
+
+.prompt-instructions {
+	border: none;
+
+	.prompt-instruction-command {
+		color: var(--text-complement);
+	}
+}
+
+.prompt {
+	input.prompt-input {
+		border: none !important;
+	}
+
+	.suggestion-item.is-selected {
+		color: var(--text-important);
+	}
+}
+
+.workspace-tab-header {
+	&:hover {
+		color: var(--text-accent);
+
+		.workspace-tab-header-inner-icon {
+			color: var(--text-accent);
+		}
+	}
+}
+
+.clickable-icon {
+	&:hover {
+		color: var(--text-accent);
+	}
+}
+
+.graph-controls {
+	border: none !important;
+	background-color: var(--background-secondary);
+
+	.graph-control-section {
+		border: none;
+
+		&:hover {
+			.graph-control-section-header,
+			.tree-item-icon svg.svg-icon {
+				color: var(--text-accent);
+			}
+		}
+
+		.graph-control-section-header {
+			font-weight: normal;
+		}
+
+		&:not(.is-collapsed) {
+			.graph-control-section-header,
+			.tree-item-icon svg.svg-icon {
+				color: var(--text-important);
+			}
+		}
+	}
+}
+
+.canvas-controls {
+	.canvas-control-group {
+		border: none;
+		padding: var(--size-2-1);
+		background-color: var(--background-secondary);
+	}
+
+	.canvas-control-item {
+		background-color: var(--background-secondary);
+		border: none;
+
+		&:hover {
+			color: var(--text-accent);
+			background-color: var(--background-modifier-hover);
+		}
+	}
+}
+
+.canvas-menu {
+	border: none;
+	background-color: var(--background-secondary);
 }

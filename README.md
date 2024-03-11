@@ -1,15 +1,5 @@
 # obsidian-focus-theme
 
-To install dependencies:
+This is a theme for [Obsidian](https://obsidian.md/).
 
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.0.30. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+If you use custom fonts set in Obsidian's settings, you may need to add `JetBrains Mono` to those settings to get the same look as in the screenshots.
