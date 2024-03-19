@@ -969,27 +969,49 @@ span.cm-header {
 	}
 }
 
+/**
+ * We need lot's of important here to override the default theme for `.is-selected`.
+ */
 .community-item {
 	border: none;
 
 	&:hover {
-		background-color: var(--background-modifier-hover);
+		background-color: var(--background-modifier-hover) !important;
+	}
+
+	&.is-selected {
+		background-color: var(--background-modifier-hover) !important;
+		color: unset !important
 	}
 
 	.community-item-name {
-		color: var(--text-important);
+		color: var(--text-important) !important;
+		opacity: 1 !important;
 	}
 
 	.community-item-author {
-		color: var(--text-faint);
+		color: var(--text-faint) !important;
+		opacity: 1 !important;
 	}
 
 	.community-item-downloads {
-		color: var(--text-faint);
+		color: var(--text-faint) !important;
+		opacity: 1 !important;
 	}
 
 	.community-item-updated {
-		color: var(--text-faint);
+		color: var(--text-faint) !important;
+		opacity: 1 !important;
+	}
+
+	.flair.mod-pop {
+		background-color: var(--interactive-accent) !important;
+		color: var(--text-on-accent) !important;
+	}
+
+	.flair {
+		background-color: var(--tag-background) !important;
+		color: var(--tag-color) !important;
 	}
 }
 
