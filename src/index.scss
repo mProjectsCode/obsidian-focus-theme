@@ -113,7 +113,7 @@ body {
 	--code-radius: var(--radius-s);
 	--code-size: var(--font-smaller);
 	--code-background: var(--background-primary-alt);
-	--code-normal: var(--text-muted);
+	--code-normal: var(--text-normal);
 	--code-comment: var(--text-faint);
 	--code-function: var(--color-yellow);
 	--code-important: var(--color-orange);
@@ -272,7 +272,7 @@ body {
 	--indentation-guide-color-active: rgba(var(--mono-rgb-100), 0.3);
 	--indentation-guide-editing-indent: 0.85em;
 	--indentation-guide-reading-indent: -0.85em;
-	--indentation-guide-source-indent: 0.25em;
+	--indentation-guide-source-indent: 0.2em;
 	/* Inline title */
 	--inline-title-color: var(--h1-color);
 	--inline-title-font: var(--h1-font);
@@ -981,7 +981,7 @@ span.cm-header {
 
 	&.is-selected {
 		background-color: var(--background-modifier-hover) !important;
-		color: unset !important
+		color: unset !important;
 	}
 
 	.community-item-name {
@@ -1105,4 +1105,8 @@ span.cm-header {
 .canvas-menu {
 	border: none;
 	background-color: var(--background-secondary);
+}
+
+.markdown-source-view.mod-cm6 .cm-hmd-codeblock > .cm-indent::before {
+	transform: none;
 }

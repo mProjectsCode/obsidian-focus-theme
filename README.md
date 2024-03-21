@@ -29,5 +29,5 @@ If you use custom fonts set in Obsidian's settings, you may need to add `JetBrai
 
 ## Credits
 
-- FireIsGood for Readme tips
-- sailKite for CSS help and testing the theme
+-   FireIsGood for Readme tips
+-   sailKite for CSS help and testing the theme
