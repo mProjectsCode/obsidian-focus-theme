@@ -1,5 +1,7 @@
 # Obsidian Focus Theme
 
+[![Important Badge](https://img.shields.io/badge/Obsidian-...%3F-7c3aed?style=plastic&logo=obsidian)](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+
 This is a dark only theme for [Obsidian](https://obsidian.md/), focusing on the important parts of your notes.
 
 ![](https://raw.githubusercontent.com/mProjectsCode/obsidian-focus-theme/master/FocusThemeImageFull.png)
