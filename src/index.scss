@@ -905,7 +905,11 @@ h6 {
 	text-transform: uppercase;
 }
 
-span.cm-header {
+.cm-line:not(.cm-active) > span.cm-header {
+	text-transform: uppercase;
+}
+
+div.inline-title {
 	text-transform: uppercase;
 }
 
