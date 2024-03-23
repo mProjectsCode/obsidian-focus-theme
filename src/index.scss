@@ -814,7 +814,6 @@ body {
 
 		&.is-active {
 			.tree-item-inner {
-				//color: var(--nav-item-color-active) !important;
 				color: var(--focus-text-color-active) !important;
 			}
 
@@ -844,10 +843,6 @@ body {
 
 	.tree-item-children {
 		transition: border-left-color 50ms;
-
-		& > :only-child {
-			display: none;
-		}
 	}
 
 	.tree-item-self:has(+ .tree-item-children > .tree-item > .tree-item-self:not(.mod-collapsible):hover),
