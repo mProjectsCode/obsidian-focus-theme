@@ -342,7 +342,7 @@ body {
 	--nav-item-color-highlighted: var(--text-accent-hover);
 	--nav-item-background-hover: var(--background-modifier-hover);
 	--nav-item-background-active: var(--background-modifier-hover);
-	--nav-item-background-selected: hsla(var(--color-accent-hsl), 0.15);
+	--nav-item-background-selected: hsla(var(--color-accent-hsl), 0.05);
 	--nav-item-padding: var(--size-4-1) var(--size-4-2) var(--size-4-1) var(--size-4-6);
 	--nav-item-parent-padding: var(--nav-item-padding);
 	--nav-item-children-padding-left: var(--size-2-2);
@@ -817,7 +817,7 @@ body {
 				color: var(--focus-text-color-active) !important;
 			}
 
-			.tree-item-icon svg {
+			:is(.tree-item-icon, .file-tree-item-icon) svg {
 				color: var(--focus-text-color-active);
 			}
 
@@ -831,7 +831,7 @@ body {
 				color: var(--focus-text-color-hover);
 			}
 
-			.tree-item-icon svg {
+			:is(.tree-item-icon, .file-tree-item-icon) svg {
 				color: var(--focus-text-color-hover);
 			}
 
@@ -851,7 +851,7 @@ body {
 			color: var(--focus-text-color-hover);
 		}
 
-		.tree-item-icon svg {
+		:is(.tree-item-icon, .file-tree-item-icon) svg {
 			color: var(--focus-text-color-hover);
 		}
 
@@ -866,7 +866,7 @@ body {
 			color: var(--focus-text-color-active);
 		}
 
-		.tree-item-icon svg {
+		:is(.tree-item-icon, .file-tree-item-icon) svg {
 			color: var(--focus-text-color-active);
 		}
 
@@ -900,12 +900,20 @@ h6 {
 	text-transform: uppercase;
 }
 
+// edit mode title
 .cm-line:not(.cm-active) > span.cm-header {
 	text-transform: uppercase;
 }
 
+// file inline title
 div.inline-title {
 	text-transform: uppercase;
+}
+
+// modal title
+.modal-title {
+	text-transform: uppercase;
+	color: var(--text-important);
 }
 
 .setting-item-heading .setting-item-name {
@@ -1108,4 +1116,47 @@ div.inline-title {
 
 .markdown-source-view.mod-cm6 .cm-hmd-codeblock > .cm-indent::before {
 	transform: none;
+}
+
+// publish highlighted files fix
+.modal.mod-publish {
+	.file-tree .tree-item-self.is-selected {
+		&.mod-changed {
+			background-color: hsla(var(--interactive-accent-hsl), 0.05);
+		}
+
+		&.mod-new {
+			background-color: hsla(var(--interactive-accent-hsl), 0.05);
+		}
+
+		&.mod-to-delete {
+			background-color: rgba(var(--background-modifier-error-rgb), 0.05);
+		}
+
+		:is(&, &.mod-changed, &.mod-new):hover {
+			background-color: hsla(var(--interactive-accent-hsl), 0.1);
+		}
+
+		:is(&.mod-to-delete):hover {
+			background-color: rgba(var(--background-modifier-error-rgb), 0.1);
+		}
+	}
+
+	.tree-item-inner.file-tree-item {
+		color: var(--text-normal);
+	}
+
+	.publish-section-header-text {
+		color: var(--text-important);
+		text-transform: uppercase;
+		padding-left: var(--size-4-1);
+	}
+
+	.publish-section-header-action {
+		color: var(--text-muted);
+
+		&:hover {
+			color: var(--text-accent);
+		}
+	}
 }
