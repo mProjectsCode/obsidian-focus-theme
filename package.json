@@ -23,5 +23,5 @@
 	"dependencies": {
 		"moment": "^2.30.1"
 	},
-	"version": "0.1.5"
+	"version": "0.1.6"
 }
