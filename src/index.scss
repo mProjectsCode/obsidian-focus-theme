@@ -14,6 +14,7 @@ $color-complement: #eaa9ff;
 $dark-color-red: #f5988f;
 $dark-color-green: $color-accent;
 $dark-color-orange: #ffc8a3;
+//$dark-color-orange: #fc9867;
 $dark-color-yellow: #f0e395;
 $dark-color-cyan: #8bf0db;
 $dark-color-blue: #97c0f3;
@@ -68,6 +69,7 @@ body {
 	--callout-padding: var(--size-4-3) var(--size-4-3) var(--size-4-3) var(--size-4-6);
 	--callout-radius: var(--radius-s);
 	--callout-blend-mode: var(--highlight-mix-blend-mode);
+	//--callout-blend-mode: normal;
 	--callout-title-color: inherit;
 	--callout-title-padding: 0;
 	--callout-title-size: inherit;
@@ -575,7 +577,7 @@ body {
 	--table-selection-blend-mode: var(--highlight-mix-blend-mode);
 	--table-selection-border-color: var(--interactive-accent);
 	--table-selection-border-width: 2px;
-	--table-selection-border-radius: 4px;
+	--table-selection-border-radius: 0;
 	--table-cell-vertical-alignment: top;
 	--table-drag-handle-background: transparent;
 	--table-drag-handle-background-active: var(--table-selection-border-color);
@@ -747,27 +749,51 @@ body {
 		0px 30px 90px rgba(0, 0, 0, 0.15);
 }
 
-.markdown-rendered mark {
-	color: var(--text-important);
+// plugins
+body {
+	// Meta Bind
+	--mb-background-modifier-active: hsla(var(--interactive-accent-hsl), 0.05);
+	--mb-background-modifier-active-hover: hsla(var(--interactive-accent-hsl), 0.1);
 }
 
-.markdown-source-view span.cm-highlight {
-	color: var(--text-important);
+// highlights
+.markdown-rendered {
+	mark {
+		color: var(--text-important);
+	}
+
+	:is(em > strong, strong > em) {
+		font-weight: var(--font-bold);
+		color: var(--color-cyan);
+	}
+
+	del {
+		color: var(--text-faint);
+	}
+}
+
+.markdown-source-view {
+	span.cm-highlight {
+		color: var(--text-important);
+	}
+
+	span.cm-em.cm-strong {
+		font-weight: var(--font-bold);
+		color: var(--color-cyan);
+	}
 }
 
 .suggestion-highlight {
 	color: var(--text-accent);
 }
 
+// tree styling
+.tree-item-self {
+	align-items: center;
+}
+
+// no custom lines on the root node of the file tree
 .nav-files-container {
-	.tree-item-self {
-		align-items: center;
-
-		.tree-item-inner {
-			display: flex;
-		}
-	}
-
 	.nav-folder {
 		&.mod-root {
 			& > .tree-item-self {
@@ -781,11 +807,10 @@ body {
 			}
 		}
 	}
-
-	.nav-file {
-	}
 }
 
+// custom styling for the tree items
+// highlighting on active folder and hover
 .tree-item:not(.graph-control-section) {
 	--focus-text-color-hover: var(--text-accent);
 	--focus-color-hover: var(--color-accent);
@@ -876,6 +901,7 @@ body {
 	}
 }
 
+// custom styling for settings categories
 .vertical-tab-nav-item {
 	&.is-active {
 		color: var(--text-important);
@@ -891,6 +917,7 @@ body {
 	}
 }
 
+// heading elements
 h1,
 h2,
 h3,
@@ -900,7 +927,6 @@ h6 {
 	text-transform: uppercase;
 }
 
-// edit mode title
 .cm-line:not(.cm-active) > span.cm-header {
 	text-transform: uppercase;
 }
@@ -921,6 +947,7 @@ div.inline-title {
 	color: var(--text-important);
 }
 
+// custom styling for line numbers
 .markdown-source-view.mod-cm6 .cm-gutters .cm-lineNumbers {
 	overflow: visible;
 
@@ -948,6 +975,7 @@ div.inline-title {
 	}
 }
 
+// callout styling
 .callout-title {
 	align-items: center;
 
@@ -960,6 +988,7 @@ div.inline-title {
 	}
 }
 
+// menu styling
 .menu {
 	border: none;
 
@@ -976,9 +1005,8 @@ div.inline-title {
 	}
 }
 
-/**
- * We need lot's of important here to override the default theme for `.is-selected`.
- */
+// plugin and theme store styling
+// We need lot's of important here to override the default theme for `.is-selected`.
 .community-item {
 	border: none;
 
@@ -1022,6 +1050,7 @@ div.inline-title {
 	}
 }
 
+// suggestion and prompt styling
 .suggestion-container {
 	border: none;
 
@@ -1048,6 +1077,7 @@ div.inline-title {
 	}
 }
 
+// workspace tab headers
 .workspace-tab-header {
 	&:hover {
 		color: var(--text-accent);
@@ -1058,12 +1088,14 @@ div.inline-title {
 	}
 }
 
+// clickable icons
 .clickable-icon {
 	&:hover {
 		color: var(--text-accent);
 	}
 }
 
+// graph controls
 .graph-controls {
 	border: none !important;
 	background-color: var(--background-secondary);
@@ -1091,6 +1123,7 @@ div.inline-title {
 	}
 }
 
+// canvas controls
 .canvas-controls {
 	.canvas-control-group {
 		border: none;
@@ -1114,31 +1147,44 @@ div.inline-title {
 	background-color: var(--background-secondary);
 }
 
+// code block indentation guide source mode fix
 .markdown-source-view.mod-cm6 .cm-hmd-codeblock > .cm-indent::before {
 	transform: none;
 }
 
 // publish highlighted files fix
 .modal.mod-publish {
-	.file-tree .tree-item-self.is-selected {
-		&.mod-changed {
-			background-color: hsla(var(--interactive-accent-hsl), 0.05);
+	.file-tree {
+		.tree-item {
+			&:has(div.mod-to-delete) > .tree-item-self.is-selected {
+				background-color: rgba(var(--background-modifier-error-rgb), 0.05);
+
+				&:hover {
+					background-color: rgba(var(--background-modifier-error-rgb), 0.1);
+				}
+			}
 		}
 
-		&.mod-new {
-			background-color: hsla(var(--interactive-accent-hsl), 0.05);
-		}
+		.tree-item-self.is-selected {
+			&.mod-changed {
+				background-color: hsla(var(--interactive-accent-hsl), 0.05);
 
-		&.mod-to-delete {
-			background-color: rgba(var(--background-modifier-error-rgb), 0.05);
-		}
+				&:hover {
+					background-color: hsla(var(--interactive-accent-hsl), 0.1);
+				}
+			}
 
-		:is(&, &.mod-changed, &.mod-new):hover {
-			background-color: hsla(var(--interactive-accent-hsl), 0.1);
-		}
+			&.mod-new {
+				background-color: hsla(var(--interactive-accent-hsl), 0.05);
 
-		:is(&.mod-to-delete):hover {
-			background-color: rgba(var(--background-modifier-error-rgb), 0.1);
+				&:hover {
+					background-color: hsla(var(--interactive-accent-hsl), 0.1);
+				}
+			}
+
+			&:hover {
+				background-color: hsla(var(--interactive-accent-hsl), 0.1);
+			}
 		}
 	}
 
@@ -1146,17 +1192,21 @@ div.inline-title {
 		color: var(--text-normal);
 	}
 
-	.publish-section-header-text {
-		color: var(--text-important);
-		text-transform: uppercase;
-		padding-left: var(--size-4-1);
-	}
+	.publish-section-header {
+		border: none;
 
-	.publish-section-header-action {
-		color: var(--text-muted);
+		.publish-section-header-text {
+			color: var(--text-important);
+			text-transform: uppercase;
+			padding-left: var(--size-4-1);
+		}
 
-		&:hover {
-			color: var(--text-accent);
+		.publish-section-header-action {
+			color: var(--text-muted);
+
+			&:hover {
+				color: var(--text-accent);
+			}
 		}
 	}
 }

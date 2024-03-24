@@ -16,7 +16,39 @@ _This is italic text_
 
 _This is italic text_
 
+_**This is bold and italic text**_
+
+_**This is bold and italic text**_
+
+This is normal text
+
+This is normal text
+
+==This is highlighted text==
+
+==This is highlighted text==
+
 ~~Strikethrough~~
+
+~~Strikethrough~~
+
+## Colors
+
+<span style="color: var(--color-red)">Text test, yes Some Text...</span>
+
+<span style="color: var(--color-green)">Text test, yes Some Text...</span>
+
+<span style="color: var(--color-orange)">Text test, yes Some Text...</span>
+
+<span style="color: var(--color-yellow)">Text test, yes Some Text...</span>
+
+<span style="color: var(--color-cyan)">Text test, yes Some Text...</span>
+
+<span style="color: var(--color-blue)">Text test, yes Some Text...</span>
+
+<span style="color: var(--color-purple)">Text test, yes Some Text...</span>
+
+<span style="color: var(--color-pink)">Text test, yes Some Text...</span>
 
 ## Blockquotes
 
@@ -38,6 +70,17 @@ _This is italic text_
 > > |   data | path to data files to supply the data that will be passed into templates. |
 > > | engine |    engine to be used for processing templates. Handlebars is the default. |
 > > |    ext |                                      extension to be used for dest files. |
+> 
+> > i am a quote
+> 
+> > [!success]
+> > i am a warning, be scared
+
+> > [!warning]
+> > i am a warning, be scared
+
+> [!warning]
+> I am a warning, be scared
 
 ## Code
 
