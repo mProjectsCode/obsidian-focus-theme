@@ -77,6 +77,7 @@ This is normal text
 > > i am a warning, be scared
 
 > > [!warning]
+> > 
 > > i am a warning, be scared
 
 > [!warning]
