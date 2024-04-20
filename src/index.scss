@@ -1221,6 +1221,25 @@ div.inline-title {
 	}
 }
 
+// search
+.search-result-file-matched-text {
+	color: var(--text-accent);
+}
+
+.search-result-file-match {
+	border-bottom: none;
+}
+
+.search-result-file-matches {
+	box-shadow: none;
+}
+
+@media (hover: hover) {
+	.search-result-file-match:hover {
+		background-color: var(--background-modifier-hover);
+	}
+}
+
 // plugins
 
 // shiki plugin
